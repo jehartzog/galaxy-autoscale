@@ -27,6 +27,10 @@ Meteor.startup(() => {
 });
 ```
 
+## Screenshot of Auto-Scale in Action
+
+![autoscale-logs](./img/autoscale-log.png "Auto-Scale Logs")
+
 ## Important Note if Already Using Synced-Cron
 
 This package uses [percolate:synced-cron](https://github.com/percolatestudio/meteor-synced-cron) to manage the timing of running the script, along with ensuring the script only gets run once per interval in a multiple-server deployment.
