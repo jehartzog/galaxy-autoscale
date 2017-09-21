@@ -1,4 +1,11 @@
 {
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
+    "env": {
+        "es6": true
+    },
     "plugins": [
         "meteor"
     ],

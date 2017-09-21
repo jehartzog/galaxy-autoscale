@@ -1,9 +1,4 @@
-// Import Tinytest from the tinytest Meteor package.
-import { Tinytest } from "meteor/tinytest";
+// Created by J. Eric Hartzog on 7/19/17
 
-// Import and rename a variable exported by galaxy-autoscale.js.
-import { name as packageName } from "meteor/avariodev:galaxy-autoscale";
-
-Tinytest.add('galaxy-autoscale - example', function (test) {
-  test.equal(packageName, "galaxy-autoscale");
-});
+// No actual testing in this file, just import to run specific tests
+import './tests/server/scaling-logic-tests.js';

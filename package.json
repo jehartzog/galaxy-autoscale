@@ -1,10 +1,10 @@
 {
   "name": "galaxy-autoscale",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "A server-only package to auto-scale Meteor Galaxy containers.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "meteor test-packages ./ --driver-package practicalmeteor:mocha",
     "lint": "./node_modules/.bin/eslint ."
   },
   "repository": {
