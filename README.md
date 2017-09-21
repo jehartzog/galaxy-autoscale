@@ -87,6 +87,8 @@ Meteor.startup(() => {
 
 While working out how to do this, I started with a [standalone scrip](https://github.com/jehartzog/galaxy-phantomjs-autoscale) that can be run on Node. I set up a t2.nano AWS EC2 instance, set it up with cron, and it works just fine. If you want to keep this odd browser scraping script out of your webserver, than you can set it up that way.
 
+After running the script on a Galaxy compact container with zero connections, CPU went to about 90% (0.4 ECU) and memory up by ~90MB for the 30 seconds this was running, so it does cause a brief impact on your webserver. On the other hand, if you are auto-scaling then you should always have some extra capacity, right? :D
+
 ### prodOnly
 
 This package is built with [prodOnly](http://docs.meteor.com/api/packagejs.html#PackageNamespace-describe) set to true, so it will only be bundled with your production build. I recommend using a staging deployment to test this.
@@ -96,3 +98,7 @@ This package is built with [prodOnly](http://docs.meteor.com/api/packagejs.html#
 Currently only the scaling logic functions are tested in `/tests/scaling-logic-tests.js` since testing the web scraping functions require Galaxy credentials to a running app.
 
 Run the tests with `npm test`.
+
+## License
+
+MIT
