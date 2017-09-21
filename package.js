@@ -18,7 +18,7 @@ Npm.depends({
 Package.onUse(function (api) {
   api.versionsFrom('1.5.2');
   api.use('ecmascript', 'server');
-  api.use('percolate:synced-cron', 'server');
+  api.use('percolate:synced-cron@1.3.2', 'server');
   // Import lib files
   api.addFiles([
     "lib/autoscale.js",
