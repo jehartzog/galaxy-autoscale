@@ -2,7 +2,7 @@
 
 import { SyncedCron } from 'meteor/percolate:synced-cron';
 
-import './checkNpmDeps.js';
+import './check-npm-deps.js';
 import runAutoScale from './lib/autoscale';
 
 // Create the object with default options

@@ -13,7 +13,7 @@ Package.onUse(function (api) {
   api.use('tmeasday:check-npm-versions@0.3.1', 'server')
   // Import lib files
   api.addFiles([
-    "checkNpmDeps.js",
+    "check-npm-deps.js",
     "lib/autoscale.js",
     "lib/cpu-per-container.js",
     "lib/is-loading.js",
