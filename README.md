@@ -111,9 +111,15 @@ Meteor.startup(() => {
 });
 ```
 
-## Other Notes
+## Troubleshooting
 
-### Alternative to running as Meteor package
+### MUP deployment failure - Insufficient Memory
+
+If you get an error during the MUP deploy process and it's not clear what is going wrong, you probably don't have enough memory on the server to complete the install. When deploying with my relatively small project, the install would fail at the phantomjs install script with a cryptic `137 error` if the server only had 512 MB of memory, it needed at least 1 GB to complete the install.
+
+If you want to run a maintenance server on as small a server as possible, you can deploy to a 1 GB server and then downsize it after the install script is completed. I was able to run this on a 512 MB t2.nano AWS EC2 instance.
+
+## Alternative to running as Meteor package
 
 While working out how to do this, I started with a [standalone scrip](https://github.com/jehartzog/galaxy-phantomjs-autoscale) that can be run on Node. I set up a nano AWS EC2 instance, set the script to run with cron, and it works just fine. If you want to keep this browser scraping script out of your webserver, than you can set it up that way.
 
