@@ -1,4 +1,4 @@
-## 2.0.0 
+## 2.0.0 (September 28, 2017)
 
 ### Breaking Changes
 * Switched to using phantomjs and webdriverio as peer dependencies due to [#2](https://github.com/jehartzog/galaxy-autoscale/issues/2).
