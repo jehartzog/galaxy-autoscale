@@ -131,6 +131,8 @@ Currently only the scaling logic functions are tested in `/tests/scaling-logic-t
 
 First ensure dependencies are installed with `npm install` and then run the tests with `npm test`.
 
+![autoscale-tests](./img/tests.png "AutoScale Tests")
+
 ## License
 
 MIT
