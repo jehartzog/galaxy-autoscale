@@ -1,26 +1,19 @@
 Package.describe({
   name: 'avariodev:galaxy-autoscale',
-  version: '1.0.0',
+  version: '2.0.0',
   summary: 'A server-only package to auto-scale Meteor Galaxy containers.',
   git: 'https://github.com/jehartzog/galaxy-autoscale.git',
-  documentation: 'README.md',
-  prodOnly: true
-});
-
-Npm.depends({
-  'phantomjs-prebuilt': '2.1.15',
-  // This is very odd, but Meteor fails to build the package when we just use 4.8.0.
-  // It somehow works when I build it with 2.4.5, and then build again with 4.8.0 *shrug*
-  'webdriverio': '4.8.0'
-  // 'webdriverio': '2.4.5'
+  documentation: 'README.md'
 });
 
 Package.onUse(function (api) {
   api.versionsFrom('1.5.2');
   api.use('ecmascript', 'server');
   api.use('percolate:synced-cron@1.1.1', 'server');
+  api.use('tmeasday:check-npm-versions@0.3.1', 'server')
   // Import lib files
   api.addFiles([
+    "checkNpmDeps.js",
     "lib/autoscale.js",
     "lib/cpu-per-container.js",
     "lib/is-loading.js",
