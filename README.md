@@ -38,8 +38,12 @@ Meteor.startup(() => {
 });
 ```
 
-## Screenshot of Auto-Scale in Action
+## Screenshots of Auto-Scaling in Action
 
+Galaxy APM graphs of up-scaling with steadily rising connections
+![autoscale-graph](./img/autoscale-graph.png "Auto-Scale Graph")
+
+Meteor Galaxy log of down-scaling
 ![autoscale-logs](./img/autoscale-log.png "Auto-Scale Logs")
 
 ## Important Note if Already Using Synced-Cron
@@ -68,15 +72,15 @@ The script does some basic math to calculate stats not provided by the Galaxy pa
 
 ### containersMin/containersMax
 
-It will not scale above/below these numbers
+It will not scale above/below these numbers.
 
 ### connectionsPerContainerMax
 
-Once the connections per container reaches this number, it will add a single container
+Once the connections per container reaches this number, it will add a single container.
 
 ### connectionsPerContainerMin
 
-Once the connections per container reaches this number, it will remove a single container
+Once the connections per container reaches this number, it will remove a single container.
 
 ## Scaling Interval
 
@@ -111,7 +115,7 @@ Meteor.startup(() => {
 
 ### Alternative to running as Meteor package
 
-While working out how to do this, I started with a [standalone scrip](https://github.com/jehartzog/galaxy-phantomjs-autoscale) that can be run on Node. I set up a t2.nano AWS EC2 instance, set it up with cron, and it works just fine. If you want to keep this odd browser scraping script out of your webserver, than you can set it up that way.
+While working out how to do this, I started with a [standalone scrip](https://github.com/jehartzog/galaxy-phantomjs-autoscale) that can be run on Node. I set up a nano AWS EC2 instance, set the script to run with cron, and it works just fine. If you want to keep this browser scraping script out of your webserver, than you can set it up that way.
 
 After running the script on a Galaxy compact container with zero connections, CPU went to about 90% (0.4 ECU) and memory up by ~90MB for the 30 seconds this was running, so it does cause a brief impact on your webserver. On the other hand, if you are auto-scaling then you should always have some extra capacity, right? :D
 
@@ -119,7 +123,7 @@ After running the script on a Galaxy compact container with zero connections, CP
 
 Currently only the scaling logic functions are tested in `/tests/scaling-logic-tests.js` since testing the web scraping functions require Galaxy credentials to a running app.
 
-Run the tests with `npm test`.
+First ensure dependencies are installed with `npm install` and then run the tests with `npm test`.
 
 ## License
 
