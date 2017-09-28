@@ -62,4 +62,8 @@ GalaxyAutoScale.startSyncedCron = () => {
     });
 };
 
+GalaxyAutoScale.runAutoScale = () => {
+    runAutoScale(GalaxyAutoScale.options);
+};
+
 export { GalaxyAutoScale };

@@ -1,9 +1,20 @@
 A package to allow a Meteor app deployed on [Meteor Galaxy](https://www.meteor.com/hosting) to determine current usage and adjust the number of running containers.
 
-Since there is no API to access this information, this package uses PhantomJS and webdriverio to scrape the information and interact with the Meteor Galaxy portal. Because of this, it is brittle and subject to breaking if MDG changes their UI, but is better than not having auto-scaling at all.
+Since there is no API to access this information, this package uses phantomjs and webdriverio to scrape the information and interact with the Meteor Galaxy portal.
 
 ## Quickstart
 
+Install the package
+```
+meteor add avariodev:galaxy-autoscale
+```
+
+Install the NPM dependencies in your project (necessary separately due to [#2](https://github.com/jehartzog/galaxy-autoscale/issues/2))
+```
+meteor npm install --save phantomjs-prebuilt@2.1.15 webdriverio@4.8.0
+```
+
+Create the following file somewhere where it will only be loaded on the server
 `/imports/server/galaxy-autoscale.js`
 ```js
 import { GalaxyAutoScale } from 'meteor/avariodev:galaxy-autoscale';
@@ -55,7 +66,7 @@ The script does some basic math to calculate stats not provided by the Galaxy pa
 - The overall connections per container
   - Number of connections / number of containers
 
-## containersMin/containersMax
+### containersMin/containersMax
 
 It will not scale above/below these numbers
 
@@ -66,6 +77,17 @@ Once the connections per container reaches this number, it will add a single con
 ### connectionsPerContainerMin
 
 Once the connections per container reaches this number, it will remove a single container
+
+## Scaling Interval
+
+By default it runs every 15 minutes. To change this, add an `interval` value to the config. This `interval` value is passed to `synced-cron` which uses the [later.js](http://bunkat.github.io/later/) library.
+```js
+GalaxyAutoScale.config({ interval: 'every 15 minutes' });
+```
+
+## Manual Scaling Execution
+
+If for whatever reason you want to manually run the auto-scaling script, call `GalaxyAutoScale.runAutoScale()`. Ensure you set your config settings first.
 
 ## Logging
 
@@ -92,10 +114,6 @@ Meteor.startup(() => {
 While working out how to do this, I started with a [standalone scrip](https://github.com/jehartzog/galaxy-phantomjs-autoscale) that can be run on Node. I set up a t2.nano AWS EC2 instance, set it up with cron, and it works just fine. If you want to keep this odd browser scraping script out of your webserver, than you can set it up that way.
 
 After running the script on a Galaxy compact container with zero connections, CPU went to about 90% (0.4 ECU) and memory up by ~90MB for the 30 seconds this was running, so it does cause a brief impact on your webserver. On the other hand, if you are auto-scaling then you should always have some extra capacity, right? :D
-
-### prodOnly
-
-This package is built with [prodOnly](http://docs.meteor.com/api/packagejs.html#PackageNamespace-describe) set to true, so it will only be bundled with your production build. I recommend using a staging deployment to test this.
 
 ## Tests
 
