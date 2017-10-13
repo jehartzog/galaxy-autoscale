@@ -27,7 +27,7 @@ const GalaxyAutoScale = {
 };
 
 const optionsAreValid = (opts) => {
-    if (!opts.appName || !opts.username || !opts.password) {
+    if ((!opts.appName && !opts.appUrl) || !opts.username || !opts.password) {
         return false;
     }
 

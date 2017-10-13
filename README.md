@@ -21,7 +21,7 @@ import { GalaxyAutoScale } from 'meteor/avariodev:galaxy-autoscale';
 
 Meteor.startup(() => {
   GalaxyAutoScale.config({
-    appName: Meteor.settings.galaxy.appName,
+    appUrl: Meteor.settings.galaxy.appUrl,
     username: Meteor.settings.galaxy.username,
     password: Meteor.settings.galaxy.password,
     scalingRules: {
@@ -54,9 +54,11 @@ If you are already using `synced-cron` in your app, then do not run `GalaxyAutoS
 
 ## Configuration Information
 
-### appName
+### appUrl
 
-This should be the end part of `https://galaxy.meteor.com/app/www.yourapp.com`, in this case `www.yourapp.com`.
+This should be the entire URL used to access your apps Galaxy management page, such as `https://galaxy.meteor.com/app/www.yourapp.com`.
+
+V2.0.0 and earlier only used `appName`, which assumed `https://galaxy.meteor.com/app/` only allowing the package to work in us-east-1. This was left in for compatibility.
 
 ## Scaling logic
 
