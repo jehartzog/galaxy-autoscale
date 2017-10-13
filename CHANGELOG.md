@@ -1,5 +1,5 @@
 ## 2.1.0 (October 15, 2017)
-* Added config settings for full appURL to support regions other than us-east-1 [#3]
+* Added config settings for full appURL to support regions other than us-east-1 [#3](https://github.com/jehartzog/galaxy-autoscale/issues/3).
 
 ## 2.0.0 (September 28, 2017)
 
