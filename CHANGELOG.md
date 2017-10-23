@@ -1,3 +1,6 @@
+## 2.2.0 (October 23, 2017)
+* Added logAlerts to allow configurable alerts to be logged if certain conditions are met.
+
 ## 2.1.0 (October 15, 2017)
 * Added config settings for full appURL to support regions other than us-east-1 [#3](https://github.com/jehartzog/galaxy-autoscale/issues/3).
 

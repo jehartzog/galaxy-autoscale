@@ -1,6 +1,6 @@
 Package.describe({
   name: 'avariodev:galaxy-autoscale',
-  version: '2.1.0',
+  version: '2.2.0',
   summary: 'A server-only package to auto-scale Meteor Galaxy containers.',
   git: 'https://github.com/jehartzog/galaxy-autoscale.git',
   documentation: 'README.md'
