@@ -32,5 +32,6 @@ Package.onTest(function (api) {
   api.use('practicalmeteor:chai');
   api.use('avariodev:galaxy-autoscale');
   api.addFiles('tests/server/scaling-logic-tests.js');
+  api.addFiles('tests/server/log-alert-tests.js');
   api.mainModule('galaxy-autoscale-tests.js');
 });

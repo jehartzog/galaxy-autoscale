@@ -30,6 +30,9 @@ Meteor.startup(() => {
       connectionsPerContainerMax: 80,
       connectionsPerContainerMin: 40,
     },
+    alertRules: {
+      cpuPercentageMax: 80,
+    },
   });
 
   GalaxyAutoScale.addSyncedCronJob();
@@ -112,6 +115,10 @@ Meteor.startup(() => {
   ...
 });
 ```
+
+### alertRules
+
+Basic checks to configure warning log notifications. Currently the only rule created is `cpuPercentageMax`, if the overall cpu percentage used exceeds this, a log even with severity `warn` will be created, allowing for automatic notifications if your log stream is configured for that.
 
 ## Troubleshooting
 
