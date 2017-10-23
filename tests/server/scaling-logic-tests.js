@@ -1,6 +1,6 @@
 // Created by J. Eric Hartzog on 7/19/17
 
-// We care about this logic, let's make sure it's solid
+import { assert } from 'meteor/practicalmeteor:chai';
 
 import scalingLogic from '../../lib/scaling-logic.js';
 
@@ -11,12 +11,6 @@ const scalingRules = {
     connectionsPerContainerMax: 100,
     connectionsPerContainerMin: 50,
 };
-
-const isEqual = (one, two) => {
-    if (one != two) {
-        throw new Error(`Not equal: ${one} != ${two}`);
-    }
-}
 
 describe('scaling logic tests', function () {
     describe('min/max container tests', function () {
@@ -31,7 +25,7 @@ describe('scaling logic tests', function () {
 
             const scaleResult = scalingLogic(status, scalingRules);
 
-            isEqual(scaleResult, 0);
+            assert(scaleResult === 0, 'should not have scaled');
         })
 
         it('prevent scale up by max container', function () {
@@ -45,7 +39,7 @@ describe('scaling logic tests', function () {
 
             const scaleResult = scalingLogic(status, scalingRules);
 
-            isEqual(scaleResult, 0);
+            assert(scaleResult === 0, 'should not have scaled');
         })
     });
 
@@ -61,7 +55,7 @@ describe('scaling logic tests', function () {
 
             const scaleResult = scalingLogic(status, scalingRules);
 
-            isEqual(scaleResult, 1);
+            assert(scaleResult === 1, 'should have scaled up');
         })
 
         it('scale down by connections per container', function () {
@@ -75,7 +69,7 @@ describe('scaling logic tests', function () {
 
             const scaleResult = scalingLogic(status, scalingRules);
 
-            isEqual(scaleResult, -1);
+            assert(scaleResult === -1, 'should have scaled down');
         })
     });
 });
