@@ -38,5 +38,4 @@ Package.onTest(function (api) {
   api.addFiles('tests/server/log-alert-tests.js');
   api.addFiles('tests/server/scraper-tests.js', 'server');
   api.addFiles('tests/server/scraper-tests-auth.js', 'server');
-  api.mainModule('galaxy-autoscale-tests.js');
 });
