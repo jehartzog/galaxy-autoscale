@@ -9,11 +9,6 @@ Install the package
 meteor add avariodev:galaxy-autoscale
 ```
 
-Install the NPM dependencies in your project (necessary separately due to [#2](https://github.com/jehartzog/galaxy-autoscale/issues/2))
-```
-meteor npm install --save phantomjs-prebuilt@2.1.15 webdriverio@4.8.0
-```
-
 Create the following file somewhere where it will only be loaded on the server
 `/imports/server/galaxy-autoscale.js`
 ```js
@@ -40,6 +35,10 @@ Meteor.startup(() => {
   GalaxyAutoScale.start();
 });
 ```
+
+## Updating to V3.0.0
+
+Phantomjs-prebuilt and webdriverio were removed and replaced by puppeteer. You can remove phantomjs-prebuilt and webdriverio from your existing project, as puppeteer properly works with Npm.depends.
 
 ## Screenshots of Auto-Scaling in Action
 
@@ -135,8 +134,6 @@ While working out how to do this, I started with a [standalone scrip](https://gi
 After running the script on a Galaxy compact container with zero connections, CPU went to about 90% (0.4 ECU) and memory up by ~90MB for the 30 seconds this was running, so it does cause a brief impact on your webserver. On the other hand, if you are auto-scaling then you should always have some extra capacity, right? :D
 
 ## Tests
-
-Currently only the scaling logic functions are tested in `/tests/scaling-logic-tests.js` since testing the web scraping functions require Galaxy credentials to a running app.
 
 First ensure dependencies are installed with `npm install` and then run the tests with `npm test`.
 

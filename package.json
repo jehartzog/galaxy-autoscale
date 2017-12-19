@@ -1,6 +1,6 @@
 {
   "name": "galaxy-autoscale",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "A server-only package to auto-scale Meteor Galaxy containers.",
   "main": "index.js",
   "scripts": {

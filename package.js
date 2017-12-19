@@ -1,6 +1,6 @@
 Package.describe({
   name: 'avariodev:galaxy-autoscale',
-  version: '2.3.0',
+  version: '3.0.0',
   summary: 'A server-only package to auto-scale Meteor Galaxy containers.',
   git: 'https://github.com/jehartzog/galaxy-autoscale.git',
   documentation: 'README.md'
@@ -36,6 +36,6 @@ Package.onTest(function (api) {
   api.use('avariodev:galaxy-autoscale');
   api.addFiles('tests/server/scaling-logic-tests.js');
   api.addFiles('tests/server/log-alert-tests.js');
-  api.addFiles('tests/server/scraper-tests.js', 'server');
-  api.addFiles('tests/server/scraper-tests-auth.js', 'server');
+  // api.addFiles('tests/server/scraper-tests.js', 'server');
+  // api.addFiles('tests/server/scraper-tests-auth.js', 'server');
 });
