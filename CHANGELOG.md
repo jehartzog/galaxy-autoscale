@@ -1,5 +1,5 @@
 ## 3.0 (Dec 19, 2017)
-* Removed phatonjs-prebuilt and webdriverio
+* Removed phatomjs-prebuilt and webdriverio
 * Added puppeteer
 
 ## 2.2.0 (October 23, 2017)
