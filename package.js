@@ -1,19 +1,21 @@
 Package.describe({
   name: 'avariodev:galaxy-autoscale',
-  version: '2.2.0',
+  version: '2.3.0',
   summary: 'A server-only package to auto-scale Meteor Galaxy containers.',
   git: 'https://github.com/jehartzog/galaxy-autoscale.git',
   documentation: 'README.md'
 });
 
+Npm.depends({
+  'puppeteer': '0.13.0'
+});
+
 Package.onUse(function (api) {
-  api.versionsFrom('1.5.2');
+  api.versionsFrom('1.6.0.1');
   api.use('ecmascript', 'server');
   api.use('percolate:synced-cron@1.1.1', 'server');
-  api.use('tmeasday:check-npm-versions@0.3.1', 'server')
   // Import lib files
   api.addFiles([
-    "check-npm-deps.js",
     "lib/autoscale.js",
     "lib/cpu-per-container.js",
     "lib/is-loading.js",
@@ -30,8 +32,11 @@ Package.onTest(function (api) {
   api.use('ecmascript');
   api.use('practicalmeteor:mocha');
   api.use('practicalmeteor:chai');
+  api.use('percolate:synced-cron@1.1.1');
   api.use('avariodev:galaxy-autoscale');
   api.addFiles('tests/server/scaling-logic-tests.js');
   api.addFiles('tests/server/log-alert-tests.js');
+  api.addFiles('tests/server/scraper-tests.js', 'server');
+  api.addFiles('tests/server/scraper-tests-auth.js', 'server');
   api.mainModule('galaxy-autoscale-tests.js');
 });
