@@ -1,3 +1,15 @@
+# Depreciated
+
+After updating my Meteor application to 1.6.x, I could not longer get phantom-js and webdriverio running properly to perform scaling operations on Galaxy. I tested using puppeteer as a replacement, and it was running locally but unable to properly start up on Galaxy instances.
+
+Rather than spend additional time working around Galaxy's shortcomings, I transitioned my application to AWS where I'm getting massively better performance at a lower cost.
+
+If you still want to use this package, [v2.2.0](https://github.com/jehartzog/galaxy-autoscale/releases/tag/v2.2.0) should still work with Meteor 1.5.x, and I'd be happy to accept PR's and help provide support if someone is still relying on this package, but I am no longer using it myself.
+
+For more discussion see [#4](https://github.com/jehartzog/galaxy-autoscale/issues/4).
+
+---
+
 A package to allow a Meteor app deployed on [Meteor Galaxy](https://www.meteor.com/hosting) to determine current usage and adjust the number of running containers.
 
 Since there is no API to access this information, this package uses phantomjs and webdriverio to scrape the information and interact with the Meteor Galaxy portal.
