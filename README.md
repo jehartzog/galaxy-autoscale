@@ -32,7 +32,7 @@ Meteor.startup(() => {
 
   GalaxyAutoScale.addSyncedCronJob();
 
-  GalaxyAutoScale.start();
+  GalaxyAutoScale.startSyncedCron();
 });
 ```
 
