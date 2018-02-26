@@ -2,7 +2,7 @@
 
 After updating my Meteor application to 1.6.x, I could not longer get phantom-js and webdriverio running properly to perform scaling operations on Galaxy. I tested using puppeteer as a replacement, and it was running locally but unable to properly start up on Galaxy instances.
 
-Rather than spend additional time working around Galaxy's shortcomings, I transitioned my application to AWS where I'm getting massively better performance at a lower cost.
+Rather than spend additional time working around Galaxy's shortcomings, I transitioned my application to AWS where I'm getting massively better performance at a lower cost. I wrote a [post](https://www.erichartzog.com/blog/aws-vs-galaxy-for-meteor-hosting) on the issues I encountered while transitioning and the overall benefits of being on AWS.
 
 If you still want to use this package, [v2.2.0](https://github.com/jehartzog/galaxy-autoscale/releases/tag/v2.2.0) should still work with Meteor 1.5.x, and I'd be happy to accept PR's and help provide support if someone is still relying on this package, but I am no longer using it myself.
 
